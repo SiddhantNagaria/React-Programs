@@ -2,15 +2,26 @@ function Product({ title, price = 1, features = [] }) {
     const List = features.map((feature, index) => (
         <li key={index}>{feature}</li>
     ));
-
-    return (
-        <div className="Product">
-            <h3>{title}</h3>
-            <h5> Price: {price}</h5>
-            <ul>{List}</ul>
-            <hr />
-        </div>
-    );
+    let isDiscount = price >20000 ? "Discount of 5%" : "";
+    if (price > 20000) {
+        return (
+            <div className="Product">
+                <h3>{title}</h3>
+                <h5> Price: {price}</h5>
+                <p>{isDiscount}</p>
+                <hr />
+            </div>
+        );
+    } else {
+        return (
+            <div className="Product">
+                <h3>{title}</h3>
+                <h5> Price: {price}</h5>
+                <ul>{List}</ul>
+                <hr />
+            </div>
+        )
+    }
 }
 
 export default Product;
