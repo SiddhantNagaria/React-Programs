@@ -10,8 +10,11 @@ function mouseOver(){
     console.log("mouse over para");
 }
 
-function dblclick(){
+function dblclick(event){
     console.log("you doubled click the button");
+    console.log(event);
+    console.log(event.target);
+    console.log(event.type);
 }
 
 export default function Button() {
